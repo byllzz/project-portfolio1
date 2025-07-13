@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+
+:root {
+  /* === DARK THEME (DEFAULT) === */
+  --bg-color: #000000; /* Pure rich black */
+  --text-color: #ffffff; /* Clean white text */
+  --accent-color: #ff4b91;
+  --card-bg: #0a0a0a; /* Dark card base */
+  --border-color: #1a1a1a; /* Slightly visible for dividers */
+  --glass-rgb: 255, 255, 255; /* Light blur base */
+  --star-color: #ffffff;
+}
+
+/* === LIGHT THEME (ONLY IF TOGGLED) === */
+[data-theme='light'] {
+  --bg-color: #ffffff;
+  --text-color: #111111;
+  --accent-color: #ff4b91;
+  --card-bg: #f9f9f9;
+  --border-color: #e0e0e0;
+  --glass-rgb: 0, 0, 0; /* Dark blur base for contrast on light */
+  --star-color: #111111;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+/* === Global Base Styles === */
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+ font-family: 'Plus Jakarta Sans' !important;
+  transition: background 0.2s ease, color 0.2s ease;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+a:hover {
+  opacity: 0.8;
+}
+
+/* Buttons */
+button {
+  font-family: inherit;
+  background: var(--accent-color);
+  color: var(--text-color);
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+section {
+  padding: 120px 0px;
+}
+
+/* main container */
+.container {
+  width: 100%;
+  max-width: 1340px;
+  margin: 0 auto;
+}
+
+@media screen and (max-width:480px) {
+  section {
+    padding: 10px 0px;
+  }
+}

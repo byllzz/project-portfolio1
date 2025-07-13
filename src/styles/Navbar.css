@@ -1,0 +1,175 @@
+nav {
+  position: fixed;
+   top: 18px;
+  left: 50%;
+  transform: translate(-50%);
+  max-width: 900px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  gap: 1.5rem;
+  border-radius: 52px;
+  z-index: 1000;
+   margin:0 auto;
+  /* Theme-Based Glass Background */
+  background: rgba(var(--glass-rgb, 255, 255, 255), 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ================= LOGO ================= */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.navbar-title {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: var(--text-color);
+  font-family: 'Great Vibes', cursive;
+  filter: brightness(2);
+}
+
+/* ================= LINKS ================= */
+.navbar-links {
+  display: flex;
+  gap: 20px;
+}
+
+.navbar-links a {
+  font-size: 19px;
+  color: var(--text-color);
+  text-decoration: none;
+  font-family: 'Lato' !important;
+  transition: color 0.3s ease;
+}
+
+.navbar-links a:hover {
+  color: var(--accent-color);
+}
+
+/* ================= RIGHT BUTTON ================= */
+.navbar-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border-radius: 40px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  font-family: 'Lato', sans-serif;
+  color: var(--text-color);
+
+  /* Glass Button Effect */
+  background: rgba(var(--glass-rgb, 255, 255, 255), 0.05);
+  border: 1px solid var(--border-color);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+}
+
+.navbar-btn:hover {
+  background: var(--accent-color);
+  color: var(--bg-color);
+  box-shadow: 0 0 15px var(--accent-color);
+}
+
+/* ================= HAMBURGER ================= */
+.menu-icon {
+  display: none;
+  cursor: pointer;
+  color: var(--text-color);
+  z-index: 1001;
+}
+
+/* ================= MOBILE MENU ================= */
+.mobile-menu {
+  position: absolute;
+  top: 70px;
+  right: 10px;
+  width: 140px;
+  padding: 16px 20px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-20px);
+  transition: all 0.5s ease;
+
+  background: rgba(var(--glass-rgb, 255, 255, 255), 0.05);
+  border: 1px solid var(--border-color);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  z-index: 999;
+}
+
+.mobile-menu.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.mobile-menu a {
+  font-size: 15px;
+  color: var(--text-color);
+  text-decoration: none;
+  padding-bottom: 6px;
+  transition: color 0.3s ease;
+}
+
+.mobile-menu a:hover {
+  color: var(--accent-color);
+}
+
+/* ================= OVERLAY ================= */
+.overlay-blur {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 998;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.overlay-blur.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ================= RESPONSIVE ================= */
+@media screen and (max-width: 768px) {
+  .navbar-links,
+  .navbar-btn {
+    display: none !important;
+  }
+
+  nav {
+    padding-block: 12px;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+  nav {
+    top: 2%;
+  }
+   .theme-toggle-wrapper {
+   display: none; 
+  }
+}

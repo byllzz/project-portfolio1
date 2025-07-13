@@ -1,0 +1,184 @@
+.skills-section {
+  background: var(--bg-color);
+  color: var(--text-color);
+  padding: 6rem 2rem;
+  text-align: center;
+}
+
+.skills-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.skills-heading {
+  font-size: 2.2rem;
+  line-height: 1.5;
+  font-weight: 400;
+  margin-bottom: 2rem;
+}
+
+.skills-heading span {
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+.skills-heading .highlight-glow-skills {
+  color: var(--accent-color);
+  font-weight: 700;
+  filter: drop-shadow(0 0 6px rgba(255, 75, 145, 0.5));
+}
+
+.skills-pill {
+  display: inline-block;
+  margin: 2rem auto 4rem;
+  padding: 0.6rem 2rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  font-size: 0.90rem;
+  font-weight: 500;
+  color: var(--accent-color);
+  transform: rotate(-17deg);
+  box-shadow: 0 0 6px rgba(var(--glass-rgb), 0.08);
+  z-index: 1;
+}
+
+.skills-content::before {
+  content: "";
+  position: absolute;
+  top: 33%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--text-color);
+  opacity: 1;
+  z-index: 0;
+}
+
+.skills-flowers {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  position: relative;
+}
+
+.skills-flower {
+  position: relative;
+  width: 340px;
+  height: 340px;
+  background: radial-gradient(circle at center, rgba(var(--glass-rgb), 0.05), rgba(0,0,0,0.05));
+  border-radius: 50%;
+  box-shadow:
+    0 0 25px rgba(var(--accent-color-rgb), 0.08),
+    inset 0 0 40px rgba(var(--accent-color-rgb), 0.04);
+  backdrop-filter: blur(15px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  overflow: visible;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Center Core */
+.center-label {
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, rgba(var(--accent-color-rgb), 1), var(--card-bg));
+  border-radius: 50%;
+  box-shadow:
+    0 0 45px rgba(var(--accent-color-rgb), 0.25),
+    0 0 100px rgba(var(--accent-color-rgb), 0.1) inset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-color);
+  font-weight: bold;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  z-index: 10;
+  animation: pulseGlow 3s infinite ease-in-out;
+  backdrop-filter: blur(8px);
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 45px rgba(var(--accent-color-rgb), 0.2); }
+  50%      { box-shadow: 0 0 100px rgba(var(--accent-color-rgb), 0.4); }
+}
+
+/* Petal Styling */
+.petal {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  font-size: 2.2rem;
+  background: var(--card-bg);
+  border-radius: 50%;
+  box-shadow:
+    0 0 8px rgba(var(--accent-color-rgb), 0.15),
+    inset 0 0 4px rgba(var(--accent-color-rgb), 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color);
+  font-weight: bold;
+  backdrop-filter: blur(4px);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+.petal img {
+  height: 55px;
+  width: 55px;
+}
+.petal:hover {
+  transform: scale(1.1);
+}
+
+/* Circular Placement Around Center */
+.skills-flower .petal:nth-child(2) { transform: rotate(0deg) translateY(-140px) rotate(0deg); }
+.skills-flower .petal:nth-child(3) { transform: rotate(60deg) translateY(-140px) rotate(-60deg); }
+.skills-flower .petal:nth-child(4) { transform: rotate(120deg) translateY(-140px) rotate(-120deg); }
+.skills-flower .petal:nth-child(5) { transform: rotate(180deg) translateY(-140px) rotate(-180deg); }
+.skills-flower .petal:nth-child(6) { transform: rotate(240deg) translateY(-140px) rotate(-240deg); }
+.skills-flower .petal:nth-child(7) { transform: rotate(300deg) translateY(-140px) rotate(-300deg); }
+
+
+@media screen and (max-width:480px) {
+  .skills-heading {
+    font-size: 1.7rem;
+    line-height: 1.4;
+    margin-bottom: .8rem;
+  }
+  .skills-section {
+    padding: 3rem 10px;
+  }
+  .skills-content::before {
+    top: 35%;
+  }
+  .petal {
+    height: 65px;
+    width: 65px;
+  }
+  .petal img {
+    height: 50px;
+  }
+  .skill-flower-bottom{
+    /* position: relative;
+    bottom: 380px; */
+    position: absolute;
+    transform: rotate(-29deg);
+      background: none;
+  border-radius: none;
+  box-shadow:none;
+  backdrop-filter: none;
+  }
+}
+@media screen and (max-width:390px) {
+ .skills-content::before {
+  top: 22%;
+ }
+}

@@ -1,0 +1,128 @@
+.services-section {
+  background: var(--bg-color);
+  color: var(--text-color);
+  padding: 6rem 2rem;
+  text-align: center;
+}
+
+.services-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.services-heading {
+  font-size: 2.2rem;
+  line-height: 1.5;
+  font-weight: 400;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.services-heading span {
+  font-weight: 700;
+  color: var(--text-color);
+}
+.services-heading .highlight-glow-service {
+  color: var(--accent-color);
+  font-weight: 700;
+  filter: drop-shadow(0 0 6px var(--accent-color));
+}
+
+.services-content::before {
+  content: "";
+  position: absolute;
+  top: 44%; 
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--text-color);
+  opacity: .6;
+  z-index: 0;
+}
+
+/* Pill still sits above the line */
+.services-pill {
+  position: relative;
+  display: inline-block;
+  margin: 2rem auto 4rem;
+  padding: 0.6rem 2rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transform: rotate(-18deg);
+  box-shadow: 0 0 6px rgba(var(--glass-rgb), 0.08);
+  color: var(--accent-color);
+  z-index: 1; /* ensures it appears over the line */
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 3rem;
+  padding: 0 1rem;
+}
+
+.service-item {
+  background: transparent;
+  border: none;
+  padding: 0;
+  transition: all 0.3s ease;
+  text-align: left !important;
+}
+.service-item:hover {
+  transform: translateY(-5px);
+}
+
+.service-icon {
+  font-size: 2rem;
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+  opacity: 0.8;
+}
+
+.service-item h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.service-item p {
+  font-size: 0.9rem;
+  color: #aaa;
+  line-height: 1.6;
+}
+
+.service-boxed {
+  background:var(--accent-color);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+  color: var(--text-color);
+  max-width: 200px;
+}
+
+@media screen and (max-width:480px) {
+  .services-content::before {
+    top: 21%;
+  }
+  .services-heading {
+    font-size: 1.5rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  .services-section {
+    padding: 3rem 10px;
+
+  }
+  .services-grid {
+    gap: 2rem;
+  }
+}
+
+@media screen and (max-width:390px) {
+ .services-content::before {
+  top: 22%;
+ }
+}

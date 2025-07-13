@@ -1,0 +1,298 @@
+/* === Root Theme Variables === */
+:root {
+  --toggle-width: 65px;
+  --toggle-height: 27px;
+
+  /* --toggle-bg-dark: #0a0a0a; */
+  --toggle-bg-dark: ghostWhite;
+  --toggle-bg-light: #ffffff;
+
+  --toggle-off-color-dark: white;
+  --toggle-off-color-light:black;
+
+  --toggle-on-color-dark: black;
+  --toggle-on-color-light: #222;
+
+  --toggle-transition: 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+[data-theme='dark'] .neo-toggle-container {
+  --toggle-bg: var(--toggle-bg-dark);
+  --toggle-off-color: var(--toggle-off-color-dark);
+  --toggle-on-color: var(--toggle-on-color-dark);
+}
+
+[data-theme='light'] .neo-toggle-container {
+  --toggle-bg: var(--toggle-bg-light);
+  --toggle-off-color: var(--toggle-off-color-light);
+  --toggle-on-color: var(--toggle-on-color-light);
+}
+
+/* === Toggle Container === */
+.neo-toggle-container {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  user-select: none;
+  position: relative;
+  left: 10px;
+}
+
+/* === Hidden Input === */
+.neo-toggle-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* === Toggle Wrapper === */
+.neo-toggle {
+  position: relative;
+  width: var(--toggle-width);
+  height: var(--toggle-height);
+  display: block;
+  cursor: pointer;
+  transform: translateZ(0);
+  perspective: 500px;
+}
+
+/* === Track Background === */
+.neo-track {
+  position: absolute;
+  inset: 0;
+  border-radius: calc(var(--toggle-height) / 2);
+  overflow: hidden;
+  transform-style: preserve-3d;
+  transform: translateZ(-1px);
+  transition: transform var(--toggle-transition);
+  box-shadow:
+    0 3px 10px rgba(0, 0, 0, 0.5),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.neo-background-layer {
+  position: absolute;
+  inset: 0;
+  background: var(--toggle-bg);
+  background-image: linear-gradient(
+    -45deg,
+    rgba(20, 20, 20, 0.8) 0%,
+    rgba(30, 30, 30, 0.3) 50%,
+    rgba(20, 20, 20, 0.8) 100%
+  );
+  transition: all var(--toggle-transition);
+}
+
+.neo-grid-layer {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(
+      to right,
+      rgba(71, 80, 87, 0.05) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(71, 80, 87, 0.05) 1px, transparent 1px);
+  background-size: 5px 5px;
+  opacity: 0;
+  transition: opacity var(--toggle-transition);
+}
+
+.neo-track-highlight {
+  position: absolute;
+  inset: 1px;
+  border-radius: calc(var(--toggle-height) / 2);
+  background: linear-gradient(90deg, transparent, rgba(54, 249, 199, 0));
+  opacity: 0;
+  transition: all var(--toggle-transition);
+}
+
+
+
+/* === Thumb === */
+.neo-thumb {
+  position: absolute;
+  top: 2px;
+  left: 4px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  transform-style: preserve-3d;
+  transition: transform var(--toggle-transition);
+  z-index: 1;
+}
+
+.neo-thumb-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: var(--toggle-off-color);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.3);
+  transition: all var(--toggle-transition);
+}
+
+.neo-thumb-core {
+  position: absolute;
+  inset: 5px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--toggle-transition);
+}
+
+.neo-thumb-icon {
+  position: relative;
+  width: 10px;
+  height: 10px;
+}
+
+.neo-thumb-wave {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 2px;
+  background: var(--toggle-off-color);
+  transform: translate(-50%, -50%);
+}
+
+.neo-thumb-pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid var(--toggle-off-color);
+  transform: scale(0);
+  opacity: 0;
+  transition: all var(--toggle-transition);
+}
+
+/* === Status Text === */
+.neo-status {
+  position: absolute;
+  bottom: -18px;
+  left: 0;
+  width: 110%;
+  display: flex;
+  justify-content: center;
+}
+
+.neo-status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.neo-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--toggle-off-color);
+  transition: all var(--toggle-transition);
+}
+
+.neo-status-text {
+  font-size: 8px;
+  font-weight: 900;
+  color: var(--toggle-off-color);
+  letter-spacing: 1px;
+  transition: all var(--toggle-transition);
+}
+
+/* === Toggle ON Styles === */
+.neo-toggle-input:checked + .neo-toggle .neo-thumb {
+  transform: translateX(calc(var(--toggle-width) - 38px));
+}
+
+.neo-toggle-input:checked + .neo-toggle .neo-thumb-ring {
+  background-color: var(--toggle-on-color);
+  border-color: rgba(54, 249, 199, 0.3);
+  box-shadow: 0 0 15px rgba(54, 249, 199, 0.5);
+}
+
+.neo-toggle-input:checked + .neo-toggle .neo-thumb-wave {
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid #fff;
+}
+
+.neo-toggle-input:checked + .neo-toggle .neo-thumb-pulse {
+  transform: scale(1.2);
+  opacity: 0.3;
+  animation: neo-pulse 1.5s infinite;
+}
+
+.neo-toggle-input:checked + .neo-toggle .neo-track-highlight {
+  background: linear-gradient(90deg, transparent, rgba(54, 249, 199, 0.2));
+  opacity: 1;
+}
+
+.neo-toggle-input:checked + .neo-toggle .neo-grid-layer {
+  opacity: 1;
+}
+
+.neo-toggle-input:checked + .neo-toggle .neo-spectrum-analyzer {
+  opacity: 1;
+}
+
+.neo-toggle-input:checked + .neo-toggle .neo-spectrum-bar:nth-child(1) {
+  animation: neo-spectrum 0.9s infinite;
+}
+.neo-toggle-input:checked + .neo-toggle .neo-spectrum-bar:nth-child(2) {
+  animation: neo-spectrum 0.8s 0.1s infinite;
+}
+.neo-toggle-input:checked + .neo-toggle .neo-spectrum-bar:nth-child(3) {
+  animation: neo-spectrum 1.1s 0.2s infinite;
+}
+.neo-toggle-input:checked + .neo-toggle .neo-spectrum-bar:nth-child(4) {
+  animation: neo-spectrum 0.7s 0.1s infinite;
+}
+.neo-toggle-input:checked + .neo-toggle .neo-spectrum-bar:nth-child(5) {
+  animation: neo-spectrum 0.9s 0.15s infinite;
+}
+
+.neo-toggle-input:checked + .neo-toggle .neo-status-dot {
+  background-color: var(--toggle-on-color);
+  box-shadow: 0 0 8px var(--toggle-on-color);
+}
+
+.neo-toggle-input:checked + .neo-toggle .neo-status-text::before {
+  content: "Light Mode";
+}
+
+.neo-toggle-input:not(:checked) + .neo-toggle .neo-status-text::before {
+  content: "Dark Mode";
+}
+
+/* === Animations === */
+@keyframes neo-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.2;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+}
+
+@keyframes neo-spectrum {
+  0% {
+    height: 3px;
+  }
+  50% {
+    height: 8px;
+  }
+  100% {
+    height: 3px;
+  }
+}

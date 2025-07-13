@@ -1,0 +1,52 @@
+.customCursor {
+  position: fixed;
+  top: 0;
+  left: -7px;
+  width: 12px;
+  height: 12px;
+  background-color: white;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 2147483647;
+  transition: all 0.3s ease;
+  mix-blend-mode: difference;
+  box-shadow: 0 0 10px white, 0 0 5px white;
+  transform: translate3d(0, 0, 0);
+}
+
+.cursorText {
+  display: none;
+  font-size: 14px;
+  color: white;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.active {
+  width: auto;
+  height: auto;
+  border-radius: 42px;
+  padding: 12px 28px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1.2px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow:
+    0 0 12px rgba(255, 255, 255, 0.25),
+    inset 0 0 6px rgba(255, 255, 255, 0.08);
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.active .cursorText {
+  display: inline-block;
+}
+
+@media screen and (max-width: 480px) {
+  .customCursor {
+    display: none;
+  }
+}
