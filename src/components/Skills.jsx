@@ -3,7 +3,7 @@ import {  SiNpm } from 'react-icons/si';
 import '../styles/Skills.css'
 import html from '../assets/html.png'
 import css from '../assets/css.png'
-import javaScript from '../assets/javaScript.png'
+import javascript from '../assets/javascript.png'
 import material from '../assets/material.png'
 import git from '../assets/git.png'
 import github from '../assets/github.png'
@@ -33,7 +33,7 @@ export default function Skills() {
               <img src={css} alt="" />
               </div>
             <div className="petal">
-              <img src={javaScript} alt="" />
+              <img src={javascript} alt="" />
               </div>
             <div className="petal">
               <img src={git} alt="" />
